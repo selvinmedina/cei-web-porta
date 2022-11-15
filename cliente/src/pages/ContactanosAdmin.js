@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { Carousel } from '@mantine/carousel'
 import { useModals } from '@mantine/modals'
 import { useMantineTheme } from '@mantine/core'
+import { API_SERVER } from '../API'
 
 const sizemodal = window.innerWidth > 1000 ? 'calc(31%)' : 'calc(80% - 0rem)'
 
@@ -20,7 +21,7 @@ export const ContactanosAdmin = () => {
   useEffect(() => {
     const fetchContactanos = async () => {
       const response = await fetch(
-        'https://cei1.herokuapp.com/1.0.0/Contactanos/'
+        `${API_SERVER}Contactanos/`
       )
       const data = await response.json()
       setContactanos(data)

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Calendario } from '../componentes/Calendario'
 import { Actividades } from '../componentes/Actividades'
 import '../styles/Calendario.css'
+import { API_SERVER } from '../API'
 
 // static data, this will be loaded from a server in production.
 
@@ -33,7 +34,7 @@ const events = [
   }
 ]
 
-const API_URL = 'http://localhost:5000/1.0.0/Eventos'
+const API_URL = `${API_SERVER}Eventos`
 export const CalendarioPage = () => {
   const prevActivities = [
     {

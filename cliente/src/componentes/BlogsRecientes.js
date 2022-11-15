@@ -4,6 +4,7 @@ import { BlogCard } from './BlogCard'
 import { useMediaQuery } from '@mantine/hooks'
 import { useMantineTheme } from '@mantine/core'
 import { Carousel } from '@mantine/carousel'
+import { API_SERVER } from '../API'
 
 const blogs = [
   {
@@ -88,7 +89,7 @@ export const BlogsRecientes = () => {
 
   useEffect(() => {
     const fetchContactanos = async () => {
-      const response = await fetch('https://cei1.herokuapp.com/1.0.0/Post')
+      const response = await fetch(`${API_SERVER}Post`)
       const data = await response.json()
       setDataBlog(data[0])
     }

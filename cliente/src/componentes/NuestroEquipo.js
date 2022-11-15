@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/NuestroEquipo.css'
 import { motion } from 'framer-motion'
+import { API_SERVER } from '../API'
 
 export const NuestroEquipo = () => {
   const [integrantes, setIntegrantes] = useState([])
 
   useEffect(() => {
     const fetchEquipo = async () => {
-      const response = await fetch('http://localhost:5000/1.0.0/inicio')
+      const response = await fetch(`${API_SERVER}/inicio`)
       const data = await response.json()
       setIntegrantes(data.integrantes)
     }
     fetchEquipo()
   }, [])
-
   return (
     <div className='nuestro-equipo flex'>
       <div className='section-title'>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { API_SERVER } from '../API'
 
 import { CasoCarousel } from '../componentes/CasoCarousel'
 
@@ -527,7 +528,7 @@ export const Casos = () => {
   useEffect(() => {
     const fetchContactanos = async () => {
       const response = await fetch(
-        'https://cei1.herokuapp.com/1.0.0/casos?seccionCasos=Social'
+        `${API_SERVER}casos?seccionCasos=Social`
       )
       const data = await response.json()
       setCasosTec(data)

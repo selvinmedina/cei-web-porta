@@ -5,6 +5,7 @@ import { useState, useRef } from 'react'
 import { FileButton, Group, Text } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
 import { IconCheck } from '@tabler/icons'
+import { API_SERVER } from '../API'
 export const HomeForm = ({ setOpened }) => {
   const form = useForm({
     initialValues: {
@@ -33,7 +34,7 @@ export const HomeForm = ({ setOpened }) => {
       carousel: [''],
       integrantes: ['']
     })
-    const response = await fetch('http://localhost:5000/1.0.0/Inicio', {
+    const response = await fetch(`${API_SERVER}Inicio`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -1,12 +1,14 @@
-const API_SERVER = 'http://localhost:3055/1.0.0';
+export const API_SERVER = 'http://localhost:5000/1.0.0/';
+// const API_SERVER = 'http://localhost:3055/1.0.0';
+// const API_SERVER = 'https://cei1.herokuapp.com/1.0.0';
 
 export class Eventos {
     static calendarEvents = async function(){
-          let result = await fetch(`${API_SERVER}/calendario/eventos`)
+          let result = await fetch(`${API_SERVER}calendario/eventos`)
           return result.json()
     }
     static get = async function(){
-        let result = await fetch(`${API_SERVER}/eventos`)
+        let result = await fetch(`${API_SERVER}eventos`)
         return result.json()
     }
 }
@@ -15,7 +17,7 @@ export class Auth {
     static validate = async function(usuario, contrasena){
           let resultValidate = {'access':false, 'data':null};
 
-          return await fetch('https://cei1.herokuapp.com/1.0.0/login',{
+          return await fetch(`${API_SERVER}login`,{
             method: "POST",
             body: JSON.stringify({usuario: usuario, contrasena: contrasena}),
             headers: {"Content-type": "application/json; charset=UTF-8"}

@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/Blog.css'
 import { DescargablesCarousel } from '../componentes/DescargablesCarousel'
+import { API_SERVER } from '../API'
 
-const API_URL = 'https://cei1.herokuapp.com/1.0.0/Archivosdescargables'
+const API_URL = `${API_SERVER}Archivosdescargables`
 
 export const RecursosDescargables = () => {
   const descargables = [

@@ -5,6 +5,7 @@ import { useForm } from '@mantine/form'
 
 import { showNotification } from '@mantine/notifications'
 import { IconCheck } from '@tabler/icons'
+import { API_SERVER } from '../API'
 
 export const BlogForm = () => {
   const [file, setFile] = useState(null)
@@ -46,7 +47,7 @@ export const BlogForm = () => {
       detalles: '',
       desc: ''
     })
-    const response = await fetch('https://cei1.herokuapp.com/1.0.0/Post', {
+    const response = await fetch(`${API_SERVER}Post`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

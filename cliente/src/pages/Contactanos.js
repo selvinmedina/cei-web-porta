@@ -9,6 +9,7 @@ import {
   IconBrandWhatsapp,
   IconBrandFacebook
 } from '@tabler/icons'
+import { API_SERVER } from '../API'
 
 export const Contactanos = () => {
   const form = useForm({
@@ -47,7 +48,7 @@ export const Contactanos = () => {
       comentario: ''
     })
     const response = await fetch(
-      'https://cei1.herokuapp.com/1.0.0/Contactanos/',
+      `${API_SERVER}Contactanos/`,
       {
         method: 'POST',
         headers: {

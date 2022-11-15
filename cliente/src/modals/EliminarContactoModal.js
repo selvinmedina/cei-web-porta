@@ -4,6 +4,7 @@ import { showNotification } from '@mantine/notifications'
 import { IconCheck } from '@tabler/icons'
 import '../styles/EliminarContactoModal.css'
 import { closeModal } from '@mantine/modals'
+import { API_SERVER } from '../API'
 
 export const EliminarContactoModal = ({ context, id, innerProps }) => {
   console.log(innerProps.id)
@@ -13,7 +14,7 @@ export const EliminarContactoModal = ({ context, id, innerProps }) => {
     const setContactanos = innerProps.setContactanos
 
     try {
-      await fetch(`https://cei1.herokuapp.com/1.0.0/Contactanos/${id}`, {
+      await fetch(`${API_SERVER}Contactanos/${id}`, {
         method: 'DELETE'
       })
       setContactanos(contactanos.filter((contactanos) => contactanos.id !== id))

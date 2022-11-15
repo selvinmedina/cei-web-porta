@@ -4,6 +4,7 @@ import React from 'react'
 import { NativeSelect, Input, Textarea, TextInput, Button } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { showNotification } from '@mantine/notifications'
+import { API_SERVER } from '../API'
 import { IconCheck } from '@tabler/icons'
 export const CasoForm = () => {
   const form = useForm({
@@ -39,7 +40,7 @@ export const CasoForm = () => {
       cuerpo: '',
       seccionCasos: 'Social'
     })
-    const response = await fetch('https://cei1.herokuapp.com/1.0.0/casos', {
+    const response = await fetch(`${API_SERVER}casos`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
