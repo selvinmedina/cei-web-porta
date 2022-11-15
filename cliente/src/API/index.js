@@ -1,4 +1,5 @@
-export const API_SERVER = 'http://localhost:5000/1.0.0/';
+export const SERVERURL = 'http://localhost:5000/';
+export const API_SERVER = SERVERURL+'1.0.0/';
 // const API_SERVER = 'http://localhost:3055/1.0.0';
 // const API_SERVER = 'https://cei1.herokuapp.com/1.0.0';
 

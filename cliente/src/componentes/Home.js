@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import '../styles/Home.css'
 
 import { Arrow, HeroBanner } from '../utils/svgIcons'
+import { SERVERURL } from '../API'
 
 export const Home = ({ dataHome }) => {
   return (
@@ -34,7 +35,7 @@ export const Home = ({ dataHome }) => {
         </motion.div>
       </div>
       <div className='home__img'>
-        <img src={dataHome?.imagen} alt='Startup' />
+        <img src={dataHome.imagen != null && dataHome.imagen.length > 0 ? SERVERURL + dataHome.imagen : ''} alt='Startup' />
       </div>
     </div>
   )
