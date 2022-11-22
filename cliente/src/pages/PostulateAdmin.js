@@ -1,129 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/PostulateAdmin.css'
 import { Table } from '@mantine/core'
+import { API_SERVER } from '../API'
 
-const elements = [
-  {
-    titulo: 'Proyecto1',
-    nombre: 'Valeria Sofia Figueroa',
-    apellido: 'Gonzalez',
-    correo: 'valeriafigueroa587@gmail.com',
-    celular: '95583206',
-    genero: 'femenino',
-    equipo: 'no',
-    comentario: 'empresa para gatos',
-    fecha: 'Sun Jun 21 2019',
 
-    empresa: 'mechas'
-  },
-  {
-    titulo: 'Proyecto1',
-    nombre: 'Valeria Sofia Figueroa',
-    apellido: 'Gonzalez',
-    correo: 'valeriafigueroa587@gmail.com',
-    celular: '95583206',
-    genero: 'femenino',
-    equipo: 'no',
-    comentario: 'empresa para gatos',
-    fecha: 'Sun Jun 21 2019',
 
-    empresa: 'mechas'
-  },
-  {
-    titulo: 'Proyecto1',
-    nombre: 'Valeria Sofia Figueroa',
-    apellido: 'Gonzalez',
-    correo: 'valeriafigueroa587@gmail.com',
-    celular: '95583206',
-    genero: 'femenino',
-    equipo: 'no',
-    comentario: 'empresa para gatos',
-    fecha: 'Sun Jun 21 2019',
-
-    empresa: 'mechas'
-  },
-  {
-    titulo: 'Proyecto1',
-    nombre: 'Valeria Sofia Figueroa',
-    apellido: 'Gonzalez',
-    correo: 'valeriafigueroa587@gmail.com',
-    celular: '95583206',
-    genero: 'femenino',
-    equipo: 'no',
-    comentario: 'empresa para gatos',
-    fecha: 'Sun Jun 21 2019',
-
-    empresa: 'mechas'
-  },
-  {
-    titulo: 'Proyecto31',
-    nombre: 'Valeria Sofia Figueroa',
-    correo: 'valeriafigueroa587@gmail.com',
-    celular: '95583206',
-    genero: 'femenino',
-    empresa: 'mechas',
-    comentario: 'empresa para gatos',
-    fecha: 'Sun Jun 21 2019',
-
-    equipo: 'no'
-  },
-  {
-    titulo: 'Proyecto133',
-    nombre: 'Valeria Sofia Figueroa',
-    correo: 'valeriafigueroa587@gmail.com',
-    celular: '95583206',
-    genero: 'femenino',
-    empresa: 'mechas',
-    comentario: 'empresa para gatos',
-    fecha: 'Sun Jun 21 2019',
-
-    equipo: 'no'
-  },
-  {
-    titulo: 'Proyecto1332',
-    nombre: 'Valeria Sofia Figueroa',
-    correo: 'valeriafigueroa587@gmail.com',
-    celular: '95583206',
-    genero: 'femenino',
-    empresa: 'mechas',
-    comentario: 'empresa para gatos',
-    fecha: 'Sun Jun 21 2019',
-    equipo: 'no'
-  },
-  {
-    titulo: 'Proyecto332',
-    nombre: 'Valeria Sofia Figueroa',
-    correo: 'valeriafigueroa587@gmail.com',
-    celular: '95583206',
-    genero: 'femenino',
-    empresa: 'mechas',
-    comentario: 'empresa para gatos',
-    fecha: 'Sun Jun 21 2019',
-
-    equipo: 'no'
-  },
-  {
-    titulo: 'Proyecto1w',
-    nombre: 'Valeria Sofia Figueroa',
-    correo: 'valeriafigueroa587@gmail.com',
-    celular: '95583206',
-    genero: 'femenino',
-    empresa: 'mechas',
-    comentario: 'empresa para gatos',
-    equipo: 'no',
-    fecha: 'Sun Jun 21 2019'
-  }
-]
 
 export const PostulateAdmin = () => {
-  const rows = elements.map((element, index) => (
+  const [dataPosts, setDataPosts] = useState([])
+
+  useEffect(() => {
+    const fetchContactanos = async () => {
+      const response = await fetch(`${API_SERVER}postulacion`)
+      const data = await response.json()
+
+      let arrayElements= [];
+      arrayElements = data[0].map(el=>{ return {...el,fechaCreado:el.fechaCreado.substring(0,10),genero:el.genero==1?"Masculino":(data.genero==2?"Femenino":"Otro"),}})
+      setDataPosts(arrayElements)
+    }
+    fetchContactanos()
+  }, []);
+  const rows = dataPosts.map((element, index) => (
     <tr key={index}>
-      <td>{<div className='td__content'>{element.titulo}</div>}</td>
+      <td>{<div className='td__content'>{element.descripcion}</div>}</td>
       <td>
-        <div className='td__content'>{element.nombre}</div>
+        <div className='td__content'>{element.representante}</div>
       </td>
       <td>
-        <div className='td__content'>{element.apellido}</div>
+        <div className='td__content'>{element.cuenta}</div>
       </td>
       <td>
         <div className='td__content'>{element.correo}</div>
@@ -135,29 +39,27 @@ export const PostulateAdmin = () => {
         <div className='td__content'>{element.genero}</div>
       </td>
       <td>
-        <div className='td__content'>{element.equipo}</div>
+        <div className='td__content'>{element.equipoTrabajo==1?"Si":"No"}</div>
       </td>
       <td>
-        <div className='td__content'>{element.comentario}</div>
       </td>
       <td>
-        <div className='td__content'>{element.fecha}</div>
+        <div className='td__content'>{element.fechaCreado}</div>
       </td>
     </tr>
   ))
 
-  const rows_responsive = elements.map((element, index) =>    
+  const rows_responsive = dataPosts.map((element, index) =>    
    (
       <div className='table_content' key={index}>
-        <div className='td__content'>{element.titulo}</div>
-        <div className='td__content'>{element.nombre}</div>
-        <div className='td__content'>{element.apellido}</div>
+        <div className='td__content'>{element.descripcion}</div>
+        <div className='td__content'>{element.representante}</div>
+        <div className='td__content'>{element.cuenta}</div>
         <div className='td__content'>{element.correo}</div>
         <div className='td__content'>{element.celular}</div>
         <div className='td__content'>{element.genero}</div>
-        <div className='td__content'>{element.equipo}</div>
-        <div className='td__content'>{element.comentario}</div>
-        <div className='td__content'>{element.fecha}</div>
+        <div className='td__content'>{element.equipoTrabajo==1?"Si":"No"}</div>
+        <div className='td__content'>{element.fechaCreado}</div>
       </div>
   ))
 
@@ -181,7 +83,7 @@ export const PostulateAdmin = () => {
                       <div className='th__title'>Nombre</div>
                     </th>
                     <th>
-                      <div className='th__title'>Apellido</div>
+                      <div className='th__title'>Cuenta</div>
                     </th>
                     <th>
                       <div className='th__title'>Correo</div>
@@ -196,7 +98,6 @@ export const PostulateAdmin = () => {
                       <div className='th__title'>Equipo</div>
                     </th>
                     <th>
-                      <div className='th__title'>Comentario</div>
                     </th>
                     <th>
                       <div className='th__title'>Fecha</div>
@@ -210,12 +111,11 @@ export const PostulateAdmin = () => {
                 <div className='table_content titles_table'>
                     <div className='td__content'>TITULO</div>
                     <div className='td__content'>NOMBRE</div>
-                    <div className='td__content'>APELLIDO</div>
+                    <div className='td__content'>Cuenta</div>
                     <div className='td__content'>CORREO</div>
                     <div className='td__content'>CELULAR</div>
                     <div className='td__content'>GENERO</div>
                     <div className='td__content'>EQUIPO</div>
-                    <div className='td__content'>COMENTARIO</div>
                     <div className='td__content'>FECHA</div>
                 </div>
                 {rows_responsive}

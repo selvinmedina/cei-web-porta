@@ -10,6 +10,15 @@ import {
   NativeSelect,
   MultiSelect
 } from '@mantine/core'
+import { useForm } from '@mantine/form'
+import { showNotification } from '@mantine/notifications'
+import {
+  IconCheck,
+  IconBrandTelegram,
+  IconBrandWhatsapp,
+  IconBrandFacebook
+} from '@tabler/icons'
+import { API_SERVER } from '../API'
 
 const data = [
   {
@@ -32,7 +41,61 @@ const data = [
 
 export const Postulate = () => {
   const [value, setValue] = useState('react')
-
+  const form = useForm({
+    initialValues: {
+      
+    comentario:'',
+    representante:'',
+    correo:'',
+    cuenta:'',
+    celular:'',
+    genero:'',
+    estado:'',
+    descripcion:'',
+    sede:'',
+    redesSociales:'',
+    equipoTrabajo:'',
+    rubro:'',
+    expectativas:'',
+    }
+    
+  })
+  const createPost = async (values) => {
+    showNotification({
+      icon: <IconCheck />,
+      title: 'Enviado',
+      color: 'green',
+      message:
+        'Gracias por postularte ! Nos pondremos en contacto contigo lo antes posible.'
+    })
+    // form.setValues({
+    //   comentario:'',
+    //   representante:'',
+    //   correo:'',
+    //   cuenta:'',
+    //   celular:'',
+    //   genero:'',
+    //   estado:'',
+    //   descripcion:'',
+    //   sede:'',
+    //   redesSociales:'',
+    //   equipoTrabajo:'',
+    //   rubro:'',
+    //   expectativas:'',
+    // })
+    const response = await fetch(
+      `${API_SERVER}postulacion/`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      }
+    )
+    const data = await response.json()
+    console.log(data)
+  };
   return (
     <div>
       <div className='postulate'>
@@ -41,7 +104,11 @@ export const Postulate = () => {
             POSTULA TU
             <span style={{ color: '#e1575f' }}> IDEA💡</span>
           </div>
-          <form className='form-postulate emerge-down'>
+          <form
+           className='form-postulate emerge-down'
+           onSubmit={form.onSubmit((values) => createPost(values))}
+
+          >
             <div className='postulate-grid'>
               <div className='postulate-grid-item'>
                 <TextInput
@@ -50,6 +117,7 @@ export const Postulate = () => {
                   label='Representante:'
                   placeholder='Ingrese su nombre completo'
                   size='md'
+                  {...form.getInputProps('representante')}
                 />
               </div>
               <div className='postulate-grid-item'>
@@ -59,6 +127,7 @@ export const Postulate = () => {
                   className='text'
                   placeholder='Ingrese su correo'
                   size='md'
+                  {...form.getInputProps('correo')}
                 />
               </div>
               <div className='postulate-grid-item'>
@@ -68,6 +137,7 @@ export const Postulate = () => {
                   className='text'
                   placeholder='Ingrese su número de cuenta'
                   size='md'
+                  {...form.getInputProps('cuenta')}
                 />
               </div>
               <div className='postulate-grid-item'>
@@ -77,6 +147,7 @@ export const Postulate = () => {
                   label='Celular: '
                   placeholder='Ingrese su número de teléfono'
                   size='md'
+                  {...form.getInputProps('celular')}
                 />
               </div>
               <div className='postulate-grid-item'>
@@ -87,6 +158,7 @@ export const Postulate = () => {
                   label='Género: '
                   required
                   size='md'
+                  {...form.getInputProps('genero')}
                 />
               </div>
               <div className='postulate-grid-item'>
@@ -97,6 +169,7 @@ export const Postulate = () => {
                   label='Etapa: '
                   required
                   size='md'
+                  {...form.getInputProps('estado')}
                 />
               </div>
               <div className='postulate-grid-item'>
@@ -106,6 +179,7 @@ export const Postulate = () => {
                   label='Nombre de tu idea/emprendimiento'
                   placeholder='Describe brevemente tu idea/emprendimiento'
                   size='md'
+                  {...form.getInputProps('descripcion')}
                 />
               </div>
               <div className='postulate-grid-item'>
@@ -120,6 +194,7 @@ export const Postulate = () => {
                   label='Sede: '
                   required
                   size='md'
+                  {...form.getInputProps('sede')}
                 />
               </div>
 
@@ -131,9 +206,12 @@ export const Postulate = () => {
                   label='¿Cuentas con redes sociales?'
                   required
                   size='md'
+                  {...form.getInputProps('redesSociales')}
                 >
-                  <Radio value='Si' label='Si' />
-                  <Radio value='No' label='No' />
+                  <Radio value='Si' label='Si' 
+                  />
+                  <Radio value='No' label='No' 
+                  />
                 </Radio.Group>
               </div>
 
@@ -145,6 +223,7 @@ export const Postulate = () => {
                   label='¿Tienes equipo de trabajo?'
                   required
                   size='md'
+                  {...form.getInputProps('equipoTrabajo')}
                 >
                   <Radio value='Si' label='Si' />
                   <Radio value='No' label='No' />
@@ -158,6 +237,8 @@ export const Postulate = () => {
                   label='¿En que rubro se encuntra tu proyecto?'
                   required
                   size='md'
+                  {...form.getInputProps('rubro')}
+
                 >
                   <Radio
                     value='comercial'
@@ -179,12 +260,20 @@ export const Postulate = () => {
                 </Radio.Group>
               </div>
               <div className='postulate-grid-item'>
-                <MultiSelect
+              {/* <MultiSelect
                   className='text'
                   size='md'
                   data={data}
                   label='¿Que esperas del proceso de pre-incubación del CEI de CEUTEC?'
                   placeholder='Elige...'
+                /> */}
+                <NativeSelect
+                  className='text'
+                  size='md'
+                  data={data}
+                  label='¿Que esperas del proceso de pre-incubación del CEI de CEUTEC?'
+                  placeholder='Elige...'
+                  {...form.getInputProps('expectativas')}
                 />
               </div>
 
@@ -192,7 +281,9 @@ export const Postulate = () => {
               <div className='postulate-grid-item'></div>
               <div className='postulate-grid-item'>
                 <Group position='right' mt='md'>
-                  <Button className='btn__postulatef'>Postularse</Button>
+                  <Button 
+                  type='submit'
+                  className='btn__postulatef'>Postularse</Button>
                   <div className='btn__descartar'>Descartar</div>
                 </Group>
               </div>
