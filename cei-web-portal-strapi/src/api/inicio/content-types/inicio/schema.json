@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inicios",
+  "info": {
+    "singularName": "inicio",
+    "pluralName": "inicios",
+    "displayName": "Inicio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "subtitulo": {
+      "type": "string"
+    },
+    "imagen": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "titulo_seccion_carousel": {
+      "type": "text"
+    },
+    "cei_descripcion": {
+      "type": "text"
+    }
+  }
+}
