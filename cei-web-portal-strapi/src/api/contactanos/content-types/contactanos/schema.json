@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contactanoes",
+  "info": {
+    "singularName": "contactanos",
+    "pluralName": "contactanoes",
+    "displayName": "Contactanos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "comentario": {
+      "type": "text"
+    },
+    "telefono": {
+      "type": "string"
+    }
+  }
+}

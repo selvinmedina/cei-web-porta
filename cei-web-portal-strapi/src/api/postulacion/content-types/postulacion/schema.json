@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "postulacions",
+  "info": {
+    "singularName": "postulacion",
+    "pluralName": "postulacions",
+    "displayName": "Postulacion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "representante": {
+      "type": "string"
+    },
+    "correo": {
+      "type": "email"
+    },
+    "cuenta": {
+      "type": "string"
+    },
+    "celular": {
+      "type": "string"
+    },
+    "genero": {
+      "type": "enumeration",
+      "enum": [
+        "Masculino",
+        "Femenido",
+        "Otro"
+      ]
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "redesSociales": {
+      "type": "boolean"
+    },
+    "equipoTrabajo": {
+      "type": "boolean"
+    },
+    "expectativas": {
+      "type": "text"
+    },
+    "estado": {
+      "type": "boolean"
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Idea",
+        "Emprendimiento"
+      ]
+    },
+    "rubro": {
+      "type": "enumeration",
+      "enum": [
+        "Comercial",
+        "Social",
+        "Emprendimiento tecnológico",
+        "Healt Care (Salud)",
+        "Artesanal"
+      ]
+    },
+    "sede": {
+      "type": "enumeration",
+      "enum": [
+        "San Pedro Sula",
+        "Tegucigalpa",
+        "La Ceiba"
+      ]
+    }
+  }
+}
