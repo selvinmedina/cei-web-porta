@@ -33,6 +33,12 @@ const events = [
     allDay: true,
     start: new Date(2022, 5, 23),
     end: new Date(2022, 0, 2)
+  },
+  {
+    title: 'Expo Day',
+    allDay: false,
+    start: new Date(2022, 2,12) ,
+    end: new Date(2022, 2,12)
   }
 ]
 const sizemodal = window.innerWidth > 1000 ? 'calc(90% - 6rem)' : 'calc(100% - 0rem)'

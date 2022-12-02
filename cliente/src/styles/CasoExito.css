@@ -1,0 +1,38 @@
+.caso-container{
+    width: 100%;
+    padding: 100px 16px  16px 16px;
+}
+
+@media (min-width: 930px){
+    .caso-container{
+        padding-top: 16px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.caso-text--title{
+    margin: 16px 0;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.caso-text--paragraph{
+    margin-bottom: 16px;
+}
+
+.caso-img-container{
+    padding: 16px;
+    width: 100%;
+}
+.caso-img{
+    width: 100%;
+}
+
+@media (min-width: 768px) { 
+    .caso-img-container{
+        display: flex;
+        gap: 10px;
+    }   
+    
+}

@@ -8,7 +8,7 @@ export const NuestroEquipo = () => {
 
   useEffect(() => {
     const fetchEquipo = async () => {
-      const response = await fetch(`${API_SERVER}/inicio`)
+      const response = await fetch(`${API_SERVER}inicio`)
       const data = await response.json()
       setIntegrantes(data.integrantes)
     }

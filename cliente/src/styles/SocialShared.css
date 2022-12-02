@@ -1,0 +1,32 @@
+.social-shared--container{
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+}
+
+.social-shared--title{
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.social-shared--title::after{
+    content: '';
+    display: block;
+    width: 80%;
+    height: 3px;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 10px;
+}
+
+.social-shared-links{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-link{
+    display: inline-block;
+}

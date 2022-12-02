@@ -19,10 +19,9 @@ export const Actividades = ({ data }) => {
       <div className='actividades-container-section'>
         <div className='actividades-section-title'>
           Actividades celebradas por el CEI
-          <motion.span animate={{ scale: [1,1.2,1.3,1.4,1.3,1.2,1] }}
-                transition={{ ease: "linear", duration: 1, repeat: Infinity }} style={{ marginLeft: '12px' }}>
+          <span>
             <Arrow height={30} width={25} fill='#e1575f' />
-          </motion.span>
+          </span>
         </div>
         <div className='container-carrouselact'>
           <Carousel
@@ -35,10 +34,10 @@ export const Actividades = ({ data }) => {
             dragFree
             loop
             breakpoints={[
-              { maxWidth: 'xl', slideSize: '30%', slideGap: 'xs' },
-              { maxWidth: 'lg', slideSize: '35%', slideGap: 'xs' },
-              { maxWidth: 'md', slideSize: '45%', slideGap: 'xs' },
-              { maxWidth: 'sm', slideSize: '60%', slideGap: 'xs' },
+              { maxWidth: 'xl', slideSize: '50%', slideGap: 'xs' },
+              { maxWidth: 'lg', slideSize: '50%', slideGap: 'xs' },
+              { maxWidth: 'md', slideSize: '60%', slideGap: 'xs' },
+              { maxWidth: 'sm', slideSize: '70%', slideGap: 'xs' },
               { maxWidth: 'xs', slideSize: '100%', slideGap: 'xs' }
             ]}
           >

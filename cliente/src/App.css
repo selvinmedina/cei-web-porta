@@ -14,7 +14,7 @@
   --orange: rgb(231, 109, 109);
   --blue-light: #90b7e3;
   --primary-color: #4a79cb;
-  --secondary-color: #e1575f;
+  --secondary-color: #68B984;
   --blue-dark: #072958;
   --green-extra-dark: #014421;
   --black: #333;
@@ -30,7 +30,16 @@ a:link,
 a:visited,
 a:active {
   text-decoration: none;
-  color: var(--black);
+  color: rgb(214, 214, 214);
+}
+
+@media (min-width: 900px) {
+  a:link,
+  a:visited,
+  a:active {
+    text-decoration: none;
+    color: var(--black);
+  }
 }
 
 button,

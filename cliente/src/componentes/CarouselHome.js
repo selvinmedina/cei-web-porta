@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import '../styles/CarouselHome.css'
 import { Carousel } from '@mantine/carousel'
 import { CarouselCard } from './CarouselCard'
 import { IconArrowRight, IconArrowLeft } from '@tabler/icons'
 import Autoplay from 'embla-carousel-autoplay'
-import { useRef } from 'react'
+
+import { motion } from 'framer-motion'
+
 const data = [
   {
     titulo: 'static',
@@ -41,23 +43,58 @@ export const CarouselHome = ({ titulo_seccion_carousel, carousel }) => {
       <CarouselCard {...item} />
     </Carousel.Slide>
   ))
+
+  // const [width, setWidth] = useState(0);
+  // const slider = useRef()
+
+  // useEffect(() => {
+  //   setWidth( slider.current.scrollWidth - slider.current.offsetWidth)
+  // }, [])
+  
+
+
   return (
+
+
+
+
+    // <motion.div ref={slider} className='slider-container'>
+
+    //   <motion.div className='slider' drag='x' dragConstraints={{right: 0, left: -width}}>
+    //     {data.map( (image, i) => (
+    //       <motion.div className='item' key={i}>
+    //         <img src={image.imagen}></img>
+    //       </motion.div>
+    //     ))}
+    //   </motion.div>
+
+    // </motion.div>
+
     <div className='carousel-home'>
-      <div className='section-titulo'>{titulo_seccion_carousel}</div>
+      <div className='section-title'>{titulo_seccion_carousel}</div>
       <Carousel
         plugins={[autoplay.current]}
         onMouseEnter={autoplay.current.stop}
         onMouseLeave={autoplay.current.reset}
-        slideSize='100%'
-        breakpoints={[{ maxWidth: 'sm', slideSize: '100%' }]}
+        slideSize='48%'
         slideGap='xl'
         align='start'
+        breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 2 }]}
         dragFree
         nextControlIcon={<IconArrowRight size={16} />}
         previousControlIcon={<IconArrowLeft size={16} />}
+        
       >
         {slides}
       </Carousel>
     </div>
+
+
+    // <div className='carousel-home'>
+    //   <div className='section-titulo'>{titulo_seccion_carousel}</div>
+    //     <Carousel slideSize="50%" height={200} align="start" slideGap="xs" controlsOffset="xs" controlSize={30} loop dragFree>
+    //     {slides}
+    //   </Carousel>
+    // </div>
   )
 }

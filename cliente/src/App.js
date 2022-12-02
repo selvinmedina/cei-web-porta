@@ -23,6 +23,7 @@ import { Blog } from './pages/Blog'
 import { Postulate } from './pages/Postulate'
 import { Contactanos } from './pages/Contactanos'
 import { PageNotFound } from './pages/PageNotFound'
+import { CasoExito } from './pages/CasoExito'
 
 // Private Route
 import PrivateRoute from './componentes/PrivateRoute'
@@ -83,6 +84,7 @@ function App() {
                 <Route index element={<LandingPage />} />
                 <Route path='/calendario' element={<CalendarioPage />} />
                 <Route path='/casos-de-exito' element={<Casos />} />
+                <Route path='/caso-de-exito/:id' element={<CasoExito />} />
                 <Route path='/blog' element={<Blog />} />
                 <Route path='/contactanos' element={<Contactanos />} />
                 <Route path='/postulate' element={<Postulate />} />

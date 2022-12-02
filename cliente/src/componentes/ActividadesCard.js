@@ -77,9 +77,9 @@ export const ActividadesCard = ({
             <div className='actividad__card__content__button'>
               <div>Compartir:</div>
               <div className='actividad__socials'>
-                <IconBrandTwitter />
-                <IconBrandFacebook />
-                <IconBrandWhatsapp />
+              <a className='social-link' target="_blank" href={`https://twitter.com/intent/tweet?text=${titulo}&url=${'www.linkalgo.com'}&hashtags=#CEI#CEUTEC#HN`}><IconBrandTwitter /></a> 
+                <a className='social-link' target="_blank" href={`https://www.facebook.com/sharer/sharer.php?u=${'www.linkalgo.com'}`}><IconBrandFacebook /></a>
+                <a className='social-link' target="_blank" href={`https://api.whatsapp.com/send?text=${descripcion + ' ' + 'www.linkalgo.com'}`}><IconBrandWhatsapp /></a>
               </div>
             </div>
           </div>

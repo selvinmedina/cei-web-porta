@@ -8,30 +8,36 @@ import { API_SERVER } from '../API'
 // static data, this will be loaded from a server in production.
 
 const events = [
-  {
-    title: 'Jaila de Jaguares',
-    allDay: true,
-    start: new Date(2022, 7, 12),
-    end: new Date(2022, 7, 12)
-  },
-  {
-    title: 'Webinar de Emprendimiento',
-    allDay: true,
-    start: new Date(2022, 7, 2),
-    end: new Date(2022, 7, 2)
-  },
-  {
-    title: 'Celebración del dia del emprendedor',
-    allDay: false,
-    start: new Date(2022, 7, 14),
-    end: new Date(2022, 7, 17)
-  },
-  {
-    title: 'Feriado Nacional',
-    allDay: true,
-    start: new Date(2022, 7, 29),
-    end: new Date(2022, 8, 2)
-  }
+  // {
+  //   title: 'Jaila de Jaguares',
+  //   allDay: true,
+  //   start: new Date(2022, 7, 12),
+  //   end: new Date(2022, 7, 12)
+  // },
+  // {
+  //   title: 'Webinar de Emprendimiento',
+  //   allDay: true,
+  //   start: new Date(2022, 7, 2),
+  //   end: new Date(2022, 7, 2)
+  // },
+  // {
+  //   title: 'Celebración del dia del emprendedor',
+  //   allDay: false,
+  //   start: new Date(2022, 7, 14),
+  //   end: new Date(2022, 7, 17)
+  // },
+  // {
+  //   title: 'Feriado Nacional',
+  //   allDay: true,
+  //   start: new Date(2022, 7, 29),
+  //   end: new Date(2022, 8, 2)
+  // },
+  // {
+  //   title: 'Expo Day',
+  //   allDay: false,
+  //   start: new Date( "2022-12-02T14:00:00.000Z" ),
+  //   end: new Date( "2022-12-02T16:00:00.000Z" ),
+  // }
 ]
 
 const API_URL = `${API_SERVER}Eventos`
