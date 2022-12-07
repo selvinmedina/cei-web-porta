@@ -28,7 +28,7 @@
       "type": "enumeration",
       "enum": [
         "Masculino",
-        "Femenido",
+        "Femenino",
         "Otro"
       ]
     },
@@ -44,9 +44,6 @@
     "expectativas": {
       "type": "text"
     },
-    "estado": {
-      "type": "boolean"
-    },
     "tipo": {
       "type": "enumeration",
       "enum": [
@@ -60,7 +57,7 @@
         "Comercial",
         "Social",
         "Emprendimiento tecnológico",
-        "Healt Care (Salud)",
+        "healt_care",
         "Artesanal"
       ]
     },
@@ -71,6 +68,9 @@
         "Tegucigalpa",
         "La Ceiba"
       ]
+    },
+    "estado": {
+      "type": "string"
     }
   }
 }
