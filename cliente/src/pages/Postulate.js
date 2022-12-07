@@ -16,9 +16,10 @@ import {
   IconCheck,
   IconBrandTelegram,
   IconBrandWhatsapp,
-  IconBrandFacebook
+  IconBrandFacebook,
+  IconFaceIdError
 } from '@tabler/icons'
-import { API_SERVER } from '../API'
+import { STRAPI_API } from '../API'
 
 const data = [
   {
@@ -43,23 +44,21 @@ export const Postulate = () => {
   const [value, setValue] = useState('react')
   const form = useForm({
     initialValues: {
-      
-    comentario:'',
-    representante:'',
-    correo:'',
-    cuenta:'',
-    celular:'',
-    genero:'',
-    estado:'',
-    descripcion:'',
-    sede:'',
-    redesSociales:'',
-    equipoTrabajo:'',
-    rubro:'',
-    expectativas:'',
+      comentario:'',
+      representante:'',
+      correo:'',
+      cuenta:'',
+      celular:'',
+      genero:'',
+      estado:'',
+      descripcion:'',
+      sede:'',
+      redesSociales: null,
+      equipoTrabajo: null,
+      rubro:'',
+      expectativas:'',
     }
-    
-  })
+  });
   const createPost = async (values) => {
     showNotification({
       icon: <IconCheck />,
@@ -68,6 +67,16 @@ export const Postulate = () => {
       message:
         'Gracias por postularte ! Nos pondremos en contacto contigo lo antes posible.'
     })
+    
+    const sentInfo = {
+      data: {
+        ...values, 
+        equipoTrabajo: (values.equipoTrabajo === 'si') ? true : false,
+        redesSociales: (values.redesSociales === 'si') ? true : false
+      }
+    }
+
+
     // form.setValues({
     //   comentario:'',
     //   representante:'',
@@ -83,18 +92,32 @@ export const Postulate = () => {
     //   rubro:'',
     //   expectativas:'',
     // })
-    const response = await fetch(
-      `${API_SERVER}postulacion/`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(values)
-      }
-    )
-    const data = await response.json()
-    console.log(data)
+
+    try {
+      const response = await fetch(
+        `${STRAPI_API}postulacions`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(sentInfo)
+        }
+      )
+      const data = await response.json()
+      if(data?.error) throw new Error('algo salio mal al tratar de enviar el formulario')
+      
+      form.reset();
+    } catch (error) {
+      showNotification({
+        icon: <IconFaceIdError />,
+        title: 'Oops...',
+        color: 'yellow',
+        message:
+          'Algo salio mal, revisa tus datos e intenta mas tarde.'
+      });
+    }
+    
   };
   return (
     <div>
@@ -208,9 +231,9 @@ export const Postulate = () => {
                   size='md'
                   {...form.getInputProps('redesSociales')}
                 >
-                  <Radio value='Si' label='Si' 
+                  <Radio value="Si" label='Si' 
                   />
-                  <Radio value='No' label='No' 
+                  <Radio value="No" label='No' 
                   />
                 </Radio.Group>
               </div>
@@ -225,8 +248,8 @@ export const Postulate = () => {
                   size='md'
                   {...form.getInputProps('equipoTrabajo')}
                 >
-                  <Radio value='Si' label='Si' />
-                  <Radio value='No' label='No' />
+                  <Radio value="si" label='Si' />
+                  <Radio value="no" label='No' />
                 </Radio.Group>
               </div>
               <div className='postulate-grid-item'>
@@ -241,20 +264,20 @@ export const Postulate = () => {
 
                 >
                   <Radio
-                    value='comercial'
+                    value='Comercial'
                     label='Comercial (Compra y comercialización de productos o servicios.)'
                   />
                   <Radio
-                    value='social'
+                    value='Social'
                     label="Social (Fundaciones, ONG's, empresas con misión social)"
                   />
                   <Radio
-                    value='emprendimiento'
+                    value='Emprendimiento tecnológico'
                     label='Emprendimiento tecnológico'
                   />
                   <Radio value='healt_care' label='Healt Care (Salud)' />
                   <Radio
-                    value='artesanal'
+                    value='Artesanal'
                     label='Artesanal (Productos elaborados comestibles y no comestibles)'
                   />
                 </Radio.Group>
