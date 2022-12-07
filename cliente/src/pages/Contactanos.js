@@ -7,9 +7,10 @@ import {
   IconCheck,
   IconBrandTelegram,
   IconBrandWhatsapp,
-  IconBrandFacebook
+  IconBrandFacebook,
+  IconFaceIdError
 } from '@tabler/icons'
-import { API_SERVER } from '../API'
+import { STRAPI_API } from '../API'
 
 export const Contactanos = () => {
   const form = useForm({
@@ -34,31 +35,43 @@ export const Contactanos = () => {
     }
   })
   const createPost = async (values) => {
-    showNotification({
-      icon: <IconCheck />,
-      title: 'Enviado',
-      color: 'green',
-      message:
-        'Gracias por contactarnos ! Nos pondremos en contacto contigo lo antes posible.'
-    })
-    form.setValues({
-      nombre: '',
-      email: '',
-      telefono: '',
-      comentario: ''
-    })
-    const response = await fetch(
-      `${API_SERVER}Contactanos/`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(values)
-      }
-    )
-    const data = await response.json()
-    console.log(data)
+   
+    const sentInfo = {
+      data: values
+    }
+
+    try {
+      const response = await fetch(
+        `${STRAPI_API}Contactanoes/`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(sentInfo)
+        }
+      )
+      const data = await response.json()
+      if(data?.error) throw new Error('algo salio mal al tratar de enviar el formulario');
+      
+      showNotification({
+        icon: <IconCheck />,
+        title: 'Enviado',
+        color: 'green',
+        message:
+          'Gracias por contactarnos ! Nos pondremos en contacto contigo lo antes posible.'
+      })
+      form.reset();
+    } catch (error) {
+      showNotification({
+        icon: <IconFaceIdError />,
+        title: 'Oops...',
+        color: 'yellow',
+        message:
+          'Algo salio mal, revisa tus datos e intenta mas tarde.'
+      });
+    }
+    
   }
 
   return (
