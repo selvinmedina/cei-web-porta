@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_integrante_integrantes",
+  "info": {
+    "displayName": "Integrantes"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "imagen": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -35,6 +35,12 @@
       "relation": "manyToOne",
       "target": "api::rubro.rubro",
       "inversedBy": "casos_exitos"
+    },
+    "integrantes": {
+      "displayName": "Integrantes",
+      "type": "component",
+      "repeatable": true,
+      "component": "integrante.integrantes"
     }
   }
 }
