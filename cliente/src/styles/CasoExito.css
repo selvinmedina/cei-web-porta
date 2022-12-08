@@ -11,6 +11,18 @@
     }
 }
 
+.caso-body{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+}
+@media (min-width: 768px){
+    .caso-body{
+        flex-direction: row;
+    }
+}
+
 .caso-text--title{
     margin: 16px 0;
     text-align: center;
@@ -33,6 +45,7 @@
     .caso-img-container{
         display: flex;
         gap: 10px;
+        flex: 0 0 60%;
     }   
     
 }
