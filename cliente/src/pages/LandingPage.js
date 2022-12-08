@@ -16,12 +16,15 @@ export const LandingPage = () => {
       const response = await fetch(`${STRAPI_API}casos-exitos?populate=*`)
       const data = await response.json()
       console.log("karousel",data)
-      setDataCarousel(data.data.map(d=> {
+      setDataCarousel(data.data.map(d => {
+        const imgUrl =  d.attributes.image.data.attributes.url.slice(1);
+        const imagen = `${STRAPI_URL}${imgUrl}` 
+        console.log( imagen )
         return {
-          id:d.attributes.id,
+          id:d.id,
           titulo:d.attributes.tittle,
           descripcion:d.attributes.short_description,
-          imagen: STRAPI_URL.substring(0,STRAPI_URL-1)+ d.attributes.image.data.attributes.url
+          imagen
         }
       }))
     }
@@ -34,8 +37,10 @@ export const LandingPage = () => {
     fetchContactanos()
   }, [])
 
-  const { carousel, titulo_seccion_carousel, integrantes, cei_descripcion } =
-    dataHome
+  const { carousel, titulo_seccion_carousel, integrantes, cei_descripcion } = dataHome
+  
+
+  
   return (
     <>
       <Home dataHome={dataHome} />

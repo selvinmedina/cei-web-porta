@@ -31,8 +31,7 @@ export const CarouselCard = (item) => {
 
         </div>
         <div className='card-inner--footer'>
-          <Link to="/caso-de-exito/asdasd">
-            <a></a>
+          <Link to={`/caso-de-exito/${item.id}`}>
             <Button variant="white" color="dark" className='card-button'>
               Leer Más
             </Button>
