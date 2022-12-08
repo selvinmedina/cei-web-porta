@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rubro": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rubro.rubro",
+      "inversedBy": "blogs"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "cuerpo": {
+      "type": "richtext"
+    },
+    "imagen_encabezado": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

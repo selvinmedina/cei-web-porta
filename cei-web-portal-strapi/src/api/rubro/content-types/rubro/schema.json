@@ -22,6 +22,12 @@
       "relation": "oneToMany",
       "target": "api::casos-exito.casos-exito",
       "mappedBy": "rubro"
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog",
+      "mappedBy": "rubro"
     }
   }
 }
