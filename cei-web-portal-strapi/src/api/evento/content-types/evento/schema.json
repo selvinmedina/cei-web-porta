@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "eventos",
+  "info": {
+    "singularName": "evento",
+    "pluralName": "eventos",
+    "displayName": "Evento"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "fecha_inicio": {
+      "type": "date"
+    },
+    "fecha_fin": {
+      "type": "date"
+    },
+    "hora_inicio": {
+      "type": "time"
+    },
+    "hora_fin": {
+      "type": "time"
+    },
+    "Semana": {
+      "type": "enumeration",
+      "enum": [
+        "Por definir",
+        "Semana 1",
+        "Semana 2",
+        "Semana 3",
+        "Semana 4",
+        "Semana 5",
+        "Semana 6",
+        "Semana 7",
+        "Semana 8",
+        "Semana 9",
+        "Semana 10"
+      ]
+    },
+    "sede": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sede.sede",
+      "inversedBy": "eventos"
+    }
+  }
+}

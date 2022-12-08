@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sedes",
+  "info": {
+    "singularName": "sede",
+    "pluralName": "sedes",
+    "displayName": "Sede",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "eventos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::evento.evento",
+      "mappedBy": "sede"
+    }
+  }
+}
