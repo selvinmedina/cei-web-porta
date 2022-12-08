@@ -10,6 +10,9 @@ import {
   Button,
   useMantineTheme
 } from '@mantine/core'
+import { STRAPI_URL } from '../API'
+import { Link } from 'react-router-dom'
+import { SocialShared } from './SocialShared'
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -22,6 +25,7 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'flex-start',
     backgroundSize: 'cover',
     backgroundPosition: 'center'
+    
   },
 
   title: {
@@ -45,10 +49,10 @@ const useStyles = createStyles((theme) => ({
 export const CasoCard = ({
   id,
   tipo,
-  titulo,
-  cuerpo,
-  imagenEncabezado,
-  usuarioCreador,
+  title,
+  desc,
+  image,
+  subtitle,
   fechaCreado,
   seccionCasos
 }) => {
@@ -71,37 +75,71 @@ export const CasoCard = ({
       size: 'calc(100% - 2rem)',
       innerProps: {
         type: tipo,
-        title: titulo,
-        description: cuerpo,
-        image: imagenEncabezado,
-        user: usuarioCreador,
+        title: title,
+        description: desc,
+        image: image,
+        user: '',
         dateCreated: fechaCreado,
         section: seccionCasos
       }
     })
 
   return (
+
     <Paper
-      shadow='md'
-      p='xl'
-      radius='md'
-      sx={{ backgroundImage: `url(${imagenEncabezado})` }}
-      className={classes.card}
+      shadow="md"
+      radius="md"
+      sx={{ backgroundImage: `url(${STRAPI_URL}${image})` }}
+      className="card"
     >
-      <div>
-        <Text align='left' className={classes.category} size='xs'>
-          {fechaCreado}
-        </Text>
-        <Title order={3} className={classes.title}>
-          {titulo}
-        </Title>
-        <Text className={classes.category} size='xs'>
-          {seccionCasos}
-        </Text>
+       <div className='card-inner'>
+        <div className='card-inner--body'>
+
+          <Title order={3} className="card-title">
+            {title}
+          </Title>
+
+          <Text className="card-category" size="xs">
+            {desc}
+          </Text>
+
+
+
+        </div>
+        <div className='card-inner--footer'>
+          <Link to={`/caso-de-exito/${id}`}>
+            <Button variant="white" color="dark" className='card-button'>
+              Leer Más
+            </Button>
+          </Link>
+          {/* <SocialShared text={item.titulo} link={'http://localhost:3000/caso-exito/asdasd'}/> */}
+        </div>
+        <div className='shared-buttons'>
+          <SocialShared text={title} link={'http://localhost:3000/caso-exito/asdasd'}/>
+        </div>
       </div>
-      <Button variant='white' color='dark' onClick={openCasosModal}>
-        Leer Caso
-      </Button>
     </Paper>
+    // <Paper
+    //   shadow='md'
+    //   p='xl'
+    //   radius='md'
+    //   sx={{ backgroundImage: `url(${STRAPI_URL}${image})` }}
+    //   className={classes.card}
+    // >
+    //   <div>
+    //     <Text align='left' className={classes.category} size='xs'>
+    //       {subtitle}
+    //     </Text>
+    //     <Title order={3} className={classes.title}>
+    //       {title}
+    //     </Title>
+    //     <Text className={classes.category} size='xs'>
+    //       {desc}
+    //     </Text>
+    //   </div>
+    //   <Button variant='white' color='dark' onClick={openCasosModal}>
+    //     Leer Caso
+    //   </Button>
+    // </Paper>
   )
 }
