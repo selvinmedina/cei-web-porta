@@ -29,6 +29,12 @@
     },
     "short_description": {
       "type": "richtext"
+    },
+    "rubro": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rubro.rubro",
+      "inversedBy": "casos_exitos"
     }
   }
 }
