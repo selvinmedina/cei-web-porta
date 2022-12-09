@@ -12,12 +12,12 @@ export const Blog = () => {
         <div className='blog-container flex'>
           <div className='casos-title section-title'>
             NUESTRO<span style={{ color: '#e1575f' }}> BlOG 🛸</span>
-            <div className='casos-subtitle'>RECURSOS & CONOCIMIENTOS</div>
+            {/* <div className='casos-subtitle'>RECURSOS & CONOCIMIENTOS</div> */}
           </div>
           <div className='casos-content'>
             <div className='casos-section'>
               <BlogsRecientes />
-              <RecursosDescargables />
+              {/* <RecursosDescargables /> */}
             </div>
           </div>
         </div>

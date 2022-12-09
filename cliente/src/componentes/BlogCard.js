@@ -4,15 +4,15 @@ import React from 'react'
 import { createStyles, Paper, Text, Title, Button } from '@mantine/core'
 import { useModals } from '@mantine/modals'
 import { useMantineTheme } from '@mantine/core'
+import { STRAPI_URL } from '../API'
 
 export const BlogCard = ({
-  cuerpo,
-  fechaCreado,
-  id,
-  imagenEncabezado,
-  tipo,
-  titulo,
-  usuarioCreador
+  contenido,
+  fecha,
+  img,
+  tittle,
+  autor,
+  id
 }) => {
   const modals = useModals()
   const theme = useMantineTheme()
@@ -31,10 +31,10 @@ export const BlogCard = ({
 
       size: 'calc(100% - 2rem)',
       innerProps: {
-        titulo: titulo,
-        autor: usuarioCreador,
-        fecha: fechaCreado,
-        desc: cuerpo
+        titulo: tittle,
+        autor: autor,
+        fecha: fecha,
+        desc: contenido
       }
     })
 
@@ -52,7 +52,7 @@ export const BlogCard = ({
     title: {
       fontFamily: `Greycliff CF, ${theme.fontFamily}`,
       fontWeight: 900,
-      color: theme.black,
+      color: theme.white,
       lineHeight: 1.2,
       fontSize: 25,
       marginTop: theme.spacing.xs,
@@ -74,15 +74,15 @@ export const BlogCard = ({
       shadow='md'
       p='xl'
       radius='md'
-      sx={{ backgroundImage: `url(${imagenEncabezado})` }}
+      sx={{ backgroundImage: `url(${STRAPI_URL}${img})` }}
       className={classes.card}
     >
       <div>
         <Text align='left' className={classes.category} size='xs'>
-          {fechaCreado}
+          {fecha}
         </Text>
         <Title order={3} className={classes.title}>
-          {titulo}
+          {tittle}
         </Title>
       </div>
       <Button variant='white' color='dark' onClick={openBlogModal}>

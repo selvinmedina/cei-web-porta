@@ -28,9 +28,8 @@ export const LandingPage = () => {
       }))
     }
     const fetchContactanos = async () => {
-      const response = await fetch(`${STRAPI_API}inicios`)
+      const response = await fetch(`${STRAPI_API}inicios?populate[0]=image&populate[1]=integrantes&populate[2]=integrantes`)
       const data = await response.json()
-      console.log(data);
       setDataHome(data.data[0].attributes)
     }
     fetchCarousel();

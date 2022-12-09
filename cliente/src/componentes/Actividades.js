@@ -8,11 +8,11 @@ import Autoplay from 'embla-carousel-autoplay'
 import { motion } from "framer-motion"
 
 export const Actividades = ({ data }) => {
-  const slides = data.map((item, i) => (
-    <Carousel.Slide key={i}>
-      <ActividadesCard {...item} />
-    </Carousel.Slide>
-  ))
+  // const slides = data.map((item, i) => (
+  //   <Carousel.Slide key={i}>
+  //     <ActividadesCard {...item} />
+  //   </Carousel.Slide>
+  // ))
   const autoplay = useRef(Autoplay({ delay: 2000 }))
   return (
     <div className='ctividades'>
@@ -23,7 +23,7 @@ export const Actividades = ({ data }) => {
             <Arrow height={30} width={25} fill='#e1575f' />
           </span>
         </div>
-        <div className='container-carrouselact'>
+        {/* <div className='container-carrouselact'>
           <Carousel
             plugins={[autoplay.current]}
             onMouseEnter={autoplay.current.stop}
@@ -43,7 +43,7 @@ export const Actividades = ({ data }) => {
           >
             {slides}
           </Carousel>
-        </div>
+        </div> */}
       </div>
     </div>
   )

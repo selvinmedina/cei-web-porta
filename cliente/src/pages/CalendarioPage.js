@@ -308,10 +308,10 @@ export const CalendarioPage = () => {
             CALENDARIO DE <span style={{ color: '#e1575f' }}> EVENTOS🎯</span>
           </div>
           <Calendario events={events} />
-          <Actividades
+          {/* <Actividades
             data={activities}
             section={'Actividades celebradas por el CEI'}
-          />
+          /> */}
         </div>
       </div>
     </div>
