@@ -4,7 +4,8 @@
   "info": {
     "singularName": "blog",
     "pluralName": "blogs",
-    "displayName": "Blog"
+    "displayName": "Blog",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,21 +18,31 @@
       "target": "api::rubro.rubro",
       "inversedBy": "blogs"
     },
-    "titulo": {
+    "tittle": {
       "type": "string"
     },
-    "cuerpo": {
+    "contenido": {
       "type": "richtext"
     },
-    "imagen_encabezado": {
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "subtittle": {
+      "type": "string"
+    },
+    "autor": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "date"
     }
   }
 }
