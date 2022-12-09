@@ -119,27 +119,6 @@ export const CasoCard = ({
         </div>
       </div>
     </Paper>
-    // <Paper
-    //   shadow='md'
-    //   p='xl'
-    //   radius='md'
-    //   sx={{ backgroundImage: `url(${STRAPI_URL}${image})` }}
-    //   className={classes.card}
-    // >
-    //   <div>
-    //     <Text align='left' className={classes.category} size='xs'>
-    //       {subtitle}
-    //     </Text>
-    //     <Title order={3} className={classes.title}>
-    //       {title}
-    //     </Title>
-    //     <Text className={classes.category} size='xs'>
-    //       {desc}
-    //     </Text>
-    //   </div>
-    //   <Button variant='white' color='dark' onClick={openCasosModal}>
-    //     Leer Caso
-    //   </Button>
-    // </Paper>
+  
   )
 }

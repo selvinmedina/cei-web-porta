@@ -7,7 +7,7 @@ export const STRAPI_API = STRAPI_URL+'api/';
 
 export class Eventos {
     static calendarEvents = async function(){
-          let result = await fetch(`${API_SERVER}calendario/eventos`)
+          let result = await fetch(`${STRAPI_API}eventos`)
           return result.json()
     }
     static get = async function(){

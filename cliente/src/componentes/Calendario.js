@@ -24,11 +24,11 @@ export const Calendario = () => {
   React.useState(() => {
     Eventos.calendarEvents()
       .then((data) => {
-        let formattedData = data.map((evento) => ({
-          title: evento.title,
-          start: new Date(evento.start),
-          end: new Date(evento.end),
-          allDay: evento.allDay > 480
+        let formattedData = data.data.map((evento) => ({
+          title: evento.attributes.titulo,
+          start: new Date(evento.attributes.fecha_inicio),
+          end: new Date(evento.attributes.fecha_fin),
+          allDay: 200 > 480
         }))
         setEventos(formattedData)
       })
