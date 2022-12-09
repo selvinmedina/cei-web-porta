@@ -4,7 +4,8 @@
   "info": {
     "singularName": "inicio",
     "pluralName": "inicios",
-    "displayName": "Inicio"
+    "displayName": "Inicio",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,20 +19,27 @@
       "type": "string"
     },
     "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "titulo_seccion_carousel": {
       "type": "text"
     },
     "cei_descripcion": {
       "type": "text"
+    },
+    "integrantes": {
+      "displayName": "Integrantes-CEI",
+      "type": "component",
+      "repeatable": true,
+      "component": "integrantes-cei.integrantes-cei"
     }
   }
 }

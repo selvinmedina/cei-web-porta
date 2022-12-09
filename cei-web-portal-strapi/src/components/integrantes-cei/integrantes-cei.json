@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_integrantes_cei_integrantes_ceis",
+  "info": {
+    "displayName": "Integrantes-CEI",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Lugar": {
+      "type": "string"
+    }
+  }
+}
