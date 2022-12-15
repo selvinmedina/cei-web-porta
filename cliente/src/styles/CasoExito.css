@@ -37,6 +37,9 @@
     padding: 16px;
     width: 100%;
 }
+.caso-img-container img{
+    width: 100%;
+}
 .caso-img{
     width: 100%;
 }
