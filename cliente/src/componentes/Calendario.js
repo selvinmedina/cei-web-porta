@@ -5,6 +5,7 @@ import format from 'date-fns/format'
 import parse from 'date-fns/parse'
 import startOfWeek from 'date-fns/startOfWeek'
 import getDay from 'date-fns/getDay'
+import { parseISO } from 'date-fns';
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { Eventos } from '../API'
 const locales = {
@@ -24,12 +25,24 @@ export const Calendario = () => {
   React.useState(() => {
     Eventos.calendarEvents()
       .then((data) => {
-        let formattedData = data.data.map((evento) => ({
-          title: evento.attributes.titulo,
-          start: new Date(evento.attributes.fecha_inicio),
-          end: new Date(evento.attributes.fecha_fin),
-          allDay: 200 > 480
-        }))
+       
+        let formattedData = data.data.map(
+          (evento) => {
+            const initialDate = evento.attributes.fecha_inicio.split('-');
+            const endDate = evento.attributes.fecha_fin.split('-');
+
+            const initialHour = evento.attributes.hora_inicio.split(':')
+            const finishHour = evento.attributes.hora_fin.split(':')
+            return {
+              title: evento.attributes.titulo,
+              start: new Date(`${initialDate[0]}`,`${initialDate[1] - 1 }`, `${initialDate[2]}`,initialHour[0],initialHour[1]),
+              end: new Date( `${endDate[0]}`,`${endDate[1] - 1 }`, `${endDate[2]}`, finishHour[0], finishHour[1] ),
+              allDay: true
+            }
+          }
+        )
+        console.log(data)
+        console.log(formattedData);
         setEventos(formattedData)
       })
       .catch((err) => console.error(err))
