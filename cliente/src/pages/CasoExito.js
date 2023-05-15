@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { STRAPI_API, STRAPI_URL } from '../API';
 import '../styles/CasoExito.css';
-
+import ReactMarkdown from 'react-markdown'
+import remarkBreaks from 'remark-breaks'
 
 export const CasoExito = () => {
     
@@ -33,9 +34,12 @@ export const CasoExito = () => {
                     <div className='caso-body'>
                         <div className='caso-text'>
                             <h2 className='caso-text--title'>{data.tittle}</h2>
-                            <p className='caso-text--paragraph'>
+                                <ReactMarkdown className='caso-text--paragraph' remarkPlugins={[remarkBreaks]}>
                                 {data.description}
-                            </p>
+
+                                </ReactMarkdown>
+                            {/* <p className='caso-text--paragraph'>
+                            </p> */}
                         </div>
                         <div className='caso-img-container'>
                             <img src={`${STRAPI_URL}${data.image.data.attributes.url.slice(1)}`}></img>
