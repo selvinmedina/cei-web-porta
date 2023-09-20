@@ -101,13 +101,11 @@
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
   padding-top: 3rem;
 }
 
-.contactanos-btns > button:nth-child(1) {
-  margin-right: 2rem;
-}
+
 
 .contactanos-btns > div:hover {
   transition: all 0.3s ease-in-out;

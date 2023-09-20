@@ -13,6 +13,9 @@ export const Navbar = () => {
     'calendario' : '/calendario',
     'casos-de-exito' : '/casos-de-exito',
     'blog' : '/blog',
+    'contactanos' : '/contactanos',
+    'postulate' : '/postulate',
+
   };
 
   const navToggle = (e) => {
@@ -84,27 +87,36 @@ export const Navbar = () => {
             </div>
           </Link>
         </li>
-        <li>
-          <div
-         
-          className='navbar-btns'>
-            <Link
+        <li className='nav__item'>
+
+        <Link
               to='/contactanos'
               value='contactanos'
-              className='btn__contactanos'
+              // className='btn__contactanos'
+              className={
+                isOpen === rutas['contactanos'] ? 'nav__link dot' : 'nav__link-casos'
+              }
               onClick={(() => setIsOpen('contactanos'), navToggle)}
             >
               Contáctanos
             </Link>
+        </li>
+
+            <li className='nav__item'>
+
             <Link
               to='/postulate'
-              className='btn__postulate'
+              // className='btn__postulate'
+              className={
+                isOpen === rutas['postulate'] ? 'nav__link dot' : 'nav__link-casos'
+              }
               onClick={(() => setIsOpen('postulate'), navToggle)}
             >
               Postulate
             </Link>
-          </div>
         </li>
+
+        
       </ul>
       <div onClick={(() => setIsOpen('home'), navToggle)} className={icon}>
         <div className='line1'></div>

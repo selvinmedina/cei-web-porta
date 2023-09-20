@@ -144,16 +144,17 @@ export const Contactanos = () => {
                 <div className='contactanos-btns'>
                   <Button
                     type='submit'
-                    mt='sm'
-                    size='md'
+                    // mt='sm'
+                    size='xl'
                     style={{
                       boxShadow: '3px 3px 17px #00000029',
-                      backgroundColor: '#072958'
+                      backgroundColor: '#072958',
+                      width:"50%"
                     }}
                   >
                     Enviar
                   </Button>
-                  <Button
+                  {/* <Button
                     type='reset'
                     mt='sm'
                     size='md'
@@ -163,7 +164,7 @@ export const Contactanos = () => {
                     }}
                   >
                     Cancelar
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             </div>
