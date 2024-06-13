@@ -1,7 +1,7 @@
 export const SERVERURL = 'http://localhost:5000/';
 export const API_SERVER = SERVERURL+'1.0.0/';
-// export const STRAPI_URL = 'http://localhost:3030/';
-export const STRAPI_URL = '34.235.163.18:3030/';
+export const STRAPI_URL = 'http://localhost:3030/';
+// export const STRAPI_URL = '34.235.163.18:3030/';
 export const STRAPI_API = STRAPI_URL+'api/';
 // const API_SERVER = 'http://localhost:3055/1.0.0';
 // const API_SERVER = 'https://cei1.herokuapp.com/1.0.0';
