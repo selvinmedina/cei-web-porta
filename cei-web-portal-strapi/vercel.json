@@ -12,5 +12,6 @@
     "API_TOKEN_SALT": "RTie/NNrILvlY5xni8DG6w==",
     "ADMIN_JWT_SECRET": "fI2uoN8X/oxOzgD1bQ5Giw==",
     "JWT_SECRET": "tKX8tpfUM79nyxx/6DWSuQ=="
-  }
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
