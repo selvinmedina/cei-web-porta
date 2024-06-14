@@ -4,7 +4,6 @@
   "builds": [
     { "src": "index.js", "use": "@vercel/node" }
   ],
-  "routes":[{ "src": "/(.*)", "dest": "/"}],
   "env": {
     "HOST": "0.0.0.0",
     "PORT": "80",
