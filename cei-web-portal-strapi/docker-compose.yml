@@ -1,0 +1,22 @@
+version: '3'
+services:
+  strapi:
+    build:
+      context: .
+    image: selvinmedina/cei-web-portal-strapi:latest
+    environment:
+      HOST: 0.0.0.0
+      PORT: 1337
+      APP_KEYS: PuqMS8CilzU4yNpwhmuYbQ==,GppkK+MGEDZ8pwuOxvE1Eg==,sb+gTOFaTb5Pt2BHNUdUVA==,BrWEwnHjdzmZ5YNqptIm8g==
+      API_TOKEN_SALT: RTie/NNrILvlY5xni8DG6w==
+      ADMIN_JWT_SECRET: fI2uoN8X/oxOzgD1bQ5Giw==
+      JWT_SECRET: tKX8tpfUM79nyxx/6DWSuQ==
+      POSTGRES_HOST: ep-cold-violet-a4d9x0oj-pooler.us-east-1.aws.neon.tech
+      DATABASE_PORT: 5432
+      POSTGRES_DATABASE: verceldb
+      POSTGRES_USER: default
+      POSTGRES_PASSWORD: 4si9BRnwrlyJ
+      DATABASE_SSL_SELF: false
+      URL: https://cei-web-portal-strapi-latest.onrender.com
+    ports:
+      - "1337:1337"
